@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-# Flask-Mail configuration
+
 app.config['MAIL_SERVER'] = 'your_smtp_server'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
