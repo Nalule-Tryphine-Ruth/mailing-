@@ -34,3 +34,7 @@ def subscribe():
         flash(f'Subscription failed. Error: {str(e)}', 'error')
 
     return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.secret_key = 'your_secret_key'
+    app.run(debug=True)
