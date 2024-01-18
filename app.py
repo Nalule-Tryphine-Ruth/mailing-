@@ -13,3 +13,12 @@ app.config['MAIL_PASSWORD'] = 'password'
 app.config['MAIL_DEFAULT_SENDER'] = 'email@gmail.com'
 
 mail = Mail(app)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    email = request.form.get('email')
