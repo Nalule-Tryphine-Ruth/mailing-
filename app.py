@@ -22,3 +22,15 @@ def index():
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
     email = request.form.get('email')
+
+
+    msg = Message('Thanks for subscribing!', recipients=[email])
+    msg.body = 'Welcome to the mailing list for upcoming artists. We appreciate your support!'
+    
+    try:
+        mail.send(msg)
+        flash('Subscription successful! Thank you for joining.')
+    except Exception as e:
+        flash(f'Subscription failed. Error: {str(e)}', 'error')
+
+    return redirect(url_for('index'))
